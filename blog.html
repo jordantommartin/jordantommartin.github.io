@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Jordan Martin's Portfolio Website</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header">
+
+					<!-- Logo -->
+						<h1><a href="index.html">Jordan Martin</a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<!-- <li>
+									<a href="#">Dropdown</a>
+									<ul>
+										<li><a href="#">Lorem ipsum dolor</a></li>
+										<li><a href="#">Magna phasellus</a></li>
+										<li><a href="#">Etiam dolore nisl</a></li>
+										<li>
+											<a href="#">Phasellus consequat</a>
+											<ul>
+												<li><a href="#">Magna phasellus</a></li>
+												<li><a href="#">Etiam dolore nisl</a></li>
+												<li><a href="#">Veroeros feugiat</a></li>
+												<li><a href="#">Nisl sed aliquam</a></li>
+												<li><a href="#">Dolore adipiscing</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Veroeros feugiat</a></li>
+									</ul>
+								</li> -->
+								<li><a href="projects.html">Projects</a></li>
+								<li><a href="about.html">About Me</a></li>
+								<li class="current"><a href="blog.html">Blog</a></li>
+								<li><a href="https://raw.githubusercontent.com/jordantommartin/jordantommartin.github.io/master/JordanMartinResume.pdf" target="_blank">Resume</a></li>
+							</ul>
+						</nav>
+
+				</section>
+
+			<!-- Main -->
+				<section id="main">
+					<div class="container">
+
+						<!-- Content -->
+							<article id="01-08-2021" class="box post">
+								<header>
+									<h2>Rewinding Destructible Meshes in Unreal Engine</h2>
+									<p>January 8th, 2021</p>
+								</header>
+								<p>
+									Over the winter break, I worked on prototyping a feature in which you can rewind the destruction of an ancient shrine. The goal was to use a destructible mesh so that we could save our artists the time it would take to do this manually through animation.
+								</p>
+								<p>
+									At first we looked into using the <a href="https://docs.unrealengine.com/en-US/InteractiveExperiences/Physics/ChaosPhysics/ChaosDestruction/ChaosDestructionOverview/index.html">Chaos Destruction</a> system that is in beta at the moment. However, after having to do a source build of the engine and encountering a few bugs, we decided that this wouldn't be the best route. I then had a team member suggest using the <a href="https://docs.unrealengine.com/en-US/InteractiveExperiences/Physics/Apex/index.html">APEX Destruction</a> plugin that allows you to create destructible meshes, which worked much better.
+								</p>
+								<header>
+									<h3>Rewinding Mechanic</h3>
+								</header>
+								<p>
+									Using a <a href="https://www.youtube.com/watch?v=fyl2Vw7Wmi4">video tutorial</a> provided by Crystal Clear Game Studios on Youtube, I was able to create a rewind mechanic that can be applied to any actor. Essentially, this involves saving off the transform and velocity of the object each frame to an array. When rewinding, you set the transform and velocity to last element and pop it off the array.
+								</p>
+								<img src="images/CubeRewind.gif" alt="" />
+
+								<section>
+									<header>
+										<h3>Destructible Meshes</h3>
+									</header>
+									<p>
+										After setting up the rewind mechanic, I attempted to apply the same logic to destructible meshes. For simplicity, I used a cube with 3 pieces. After researching and working with destructible meshes, I found that they operate similar to skeletal meshes and even have bones for each piece of the destruction. UE4 allows you to GET the transform of these bones but doesn't allow you to SET the transform.
+									</p>
+									<p>
+										I did find that you can set the transform of a bone in a Poseable Mesh, however. This would work if we could use the physics of the destructible mesh when destroying an object and using the poseable mesh when rewinding the transforms. Then use a visibility toggle on each of the components depending on whether we are playing or rewinding.
+									</p>
+									<p>
+										So, I attempted to convert the destructible mesh into a poseable mesh. I exported the destructible mesh as an FBX and then reimported it into UE4 as a skeletal mesh. Then I added a poseable mesh component to the blueprint, which used this skeletal mesh. Bingo, I was able to manipulate the bones by setting the transform! However, it didn't look quite right. Each of the pieces was moving correctly, but the original shape was also being manipulated. So I needed to remove the original cube shape from the poseable mesh, so that only the pieces are being manipulated.
+									</p>
+									<p>
+										After fiddling around in Maya, I realized I wasn't just going to be able to delete the original shape, as that just ruined the entire skeleton. Instead, I applied a transparent material to the original shape. Success! Only the pieces are shown inside of UE4.
+									</p>
+									<p>
+										So, after creating and modifying an identical poseable mesh, I was able to apply the rewind mechanic to each of the bones. Then use the destructible mesh for playing forward and the poseable mesh for rewinding backward.
+									</p>
+								</section>
+								<section>
+									<header>
+										<h3>Final Result</h3>
+									</header>
+									<img src="images/DestructibleShot.gif" alt="" />
+									<p>
+										Showing toggling of meshes
+									</p>
+									<img src="images/DestructiblesRewinded.gif" alt="" />
+									<p>
+										More appropriate usage by rewinding still pieces on the ground
+									</p>
+								</section>
+								<section>
+									<header>
+										<h3>Destructible Meshes</h3>
+									</header>
+									<p>
+										At this moment, this is a one time operation. Once the rewind has taken place, the destructible mesh does not reset. This should be fine for our purposes of animation. But, this could be useful for future projects or mechanics.
+									</p>
+									<p>
+										Next steps are to apply this to a textured and more detailed object, similar to one used in game. Also, we want to move this from blueprints to C++ code.
+									</p>
+								</section>
+							</article>
+
+					</div>
+				</section>
+
+			<!-- Footer -->
+							<!-- Footer -->
+							<section id="footer">
+								<div class="container">
+									<div class="row">
+										<div class="col-12">
+											<section>
+												<ul class="social">
+													<li><a class="icon brands fa-github" href="https://github.com/jordantommartin"><span class="label">Github</span></a></li>
+													<li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/jordantommartin/"><span class="label">LinkedIn</span></a></li>
+													<li><a class="icon fa-envelope" href="mailto:jordantommartin@gmail.com"><span class="label">LinkedIn</span></a></li>
+												</ul>
+											</section>
+										</div>
+									</div>
+								</div>
+							</section>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

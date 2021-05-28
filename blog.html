@@ -47,7 +47,220 @@
 
 				</section>
 
-			<!-- Main -->
+<!-- Dev Diary Week 0 -->
+<section id="main">
+	<div class="container">
+
+		<!-- Content -->
+			<article id="05-28-2021" class="box post">
+				<header>
+					<h2>Dev Diary Week 0</h2>
+					<p>May 28th, 2021</p>
+				</header>
+				<p>
+					Welcome to the start of my Personal Programming Project! This is an individual effort to explore a specific area of video game programming that I am interested in.
+					I have chosen to focus on <b>Goal Oriented Action Planning</b> for artificial intelligence in games. In this post, I state what I intend to accomplish with this project, 
+					explain what GOAP is, and outline a schedule for the project.
+				</p>
+
+				<div class="row">
+					<div class="col-6">
+						<header>
+							<h3>Project Objectives</h3>
+						</header>
+						<p>
+							<ul>
+								<li>Create a GOAP AI system in Unity</li>
+								<li>Integrate the GOAP AI system into an agent-based simulation</li>
+								<li>Show clear visualizations in real-time of the underlying GOAP AI system</li>
+								<li>Create a sims-like game out of the GOAP AI system</li>
+							</ul>
+						</p>
+					</div>
+					<div class="col-6">
+						<img style="width:75%" src="images/sims-1.png" alt="" />
+					</div>
+				</div>
+				<header>
+					<h3>What is Goal Oriented Action Planning?</h3>
+				</header>
+				<p>
+					Goal Oriented Action Planning is a technique of artificial intelligence used to control agents (NPCs) in a game. This is opposed to some more traditional techniques
+					such as Finite State Machines and Behavior Trees. It was based on a technology called Automated Planning that has been used outside of video games for some time.
+					It was popularized in video games in the mid-2000s when the game F.E.A.R. utilized this system to control its NPCs. Since then, it has been included in many other AAA games
+					and evolved into even more complicated AI techniques.
+				</p>
+
+				<header>
+					<h3>How does Goal Oriented Action Planning Work?</h3>
+				</header>
+				<p>
+					Goal Oriented Action Planning works by attempting to figure out a sequence of actions that will achieve a distant "goal" for an agent. It does this by querying the World State
+					for facts and creating a plan from a set of given actions. These actions are specifically made up of three things:
+					<ul>
+						<li>Objects - Any items in the world involved in the action</li>
+						<li>Preconditions - Facts that must be true for the action to work</li>
+						<li>Effects - How the world state changes when the action is complete</li>
+					</ul>
+				</p>
+
+				<header>
+					<h3>Why use Goal Oriented Action Planning?</h3>
+				</header>
+
+				<p>
+					Goal Oriented Action Planning has some advantages and disadvantages that can be considered when thinking of using it inside a game.
+				</p>
+				<div class="row">
+					<div class="col-6">
+						<header>
+							<h4>Pros</h4>
+							<ul>
+								<li>Actions are decoupled from agents</li>
+								<li>Smaller, more data-driven approach to AI</li>
+								<li>Allows for priority of multiple goals at one time</li>
+							</ul>
+						</header>
+						<header>
+							<h4>Cons</h4>
+							<ul>
+								<li>Revalidation of plan during execution</li>
+								<li>The planner makes all decisions for the agents</li>
+								<li>Performance overhead if agents are not in the scene</li>
+							</ul>
+						</header>
+					</div>
+					<div class="col-4">
+						<img src="images/GOAPStateMachine.png" alt="" />
+						<p style ="text-align: center">
+							The GOAP State Machine, which is much simpler that a typical finite state machine.
+						</p>
+					</div>
+				</div>
+
+				<section>
+					<header>
+						<h3>Schedule</h3>
+					</header>
+					<table style="width:100%">
+						<tr>
+						  <th style="width:20%">Week</th>
+						  <th>Deliverables</th>
+						</tr>
+						<tr>
+						  <td>Week 0</td>
+						  	<td>
+								<ul>
+									<li>Research and prepare presentation to give in class</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td>Week 1</td>
+								<td>
+								  <ul>
+									<li>Further Research</li>
+									<li>Agent simulation moving with Basic NavMeshes</li> 
+								  </ul>
+							  </td>
+						</tr>
+						  <tr>
+							<td>Week 2</td>
+								<td>
+								  <ul>
+									  <li>Creating the GOAP Environment, including the World State, Actions, and Agents</li>
+								  </ul>
+							  </td>
+						</tr>
+						  <tr>
+							<td>Week 3</td>
+								<td>
+								  <ul>
+									  <li>Creating the Planner and executing a simple plan on an agent</li>
+								  </ul>
+							  </td>
+						</tr>
+						  <tr>
+							<td>Week 4</td>
+								<td>
+								  <ul>
+									  <li>Expanding on the Planner by excuting multi-step plans on multiple agents</li>
+								  </ul>
+							  </td>
+						</tr>
+						<tr>
+							<td>Week 5</td>
+							<td>
+								<ul>
+									<li>Prepare update presentation to give in class</li>
+									<li>Monitoring Agents State in Real Time through a UI tool</li>
+								</ul>	
+							</td>
+						</tr>
+						<tr>
+							<td>Week 6</td>
+							<td>
+								<ul>
+									<li>Update Presentation to the class the following week</li>
+									<li>Adding "Smart Objects" to the world that can be used to fulfill goals</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td>Week 7</td>
+							<td>
+								<ul>
+									<li>Revalidation of plans invoked by adding changes to the world state at runtime</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td>Week 8</td>
+							<td>
+								<ul>
+									<li>Agents with multiple priorities of goals</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td>Week 9</td>
+							<td>
+								<ul>
+									<li>Add player agency and have planner adjust from any changes to game</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td>Week 10</td>
+							<td>
+								<ul>
+									<li>Sims like gameplay elements including: UI, Resources, Placement of Buildings, Game Logic</li>
+									<li>Prepare final presentation to give in class the following week</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td>Week 11</td>
+							<td>
+								<ul>
+									<li>Final Presentation!</li>
+								</ul>
+							</td>
+						</tr>
+					  </table> 
+				</section>
+				<section>
+					<header>
+						<h3>Introduction Presentation</h3>
+					</header>
+					<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=[docs/GoalOrientedActionPlanningAI.pptx]' width='100%' height='600px' frameborder='0'></iframe>
+				</section>
+			</article>
+
+	</div>
+</section>
+
+			<!-- Rewind Destructible Meshes -->
 				<section id="main">
 					<div class="container">
 

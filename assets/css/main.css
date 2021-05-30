@@ -33,6 +33,10 @@ body {
 	line-height: 1;
 }
 
+video {
+	border: 5px solid #000000;
+}
+
 pre code {
 	font-family: monospace;
 	background-color: #eee;

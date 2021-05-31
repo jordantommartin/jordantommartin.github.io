@@ -1650,7 +1650,7 @@ input, select, textarea {
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
-			background: #e53359;
+			background: #3899e9;
 		}
 
 		input[type="button"]:active,
@@ -1658,7 +1658,7 @@ input, select, textarea {
 		input[type="reset"]:active,
 		button:active,
 		.button:active {
-			background: #c51349;
+			background: #3899e9;
 		}
 
 		input[type="button"].alt,
@@ -2208,7 +2208,7 @@ input, select, textarea {
 	}
 
 		#banner header {
-			background-color: rgba(34, 30, 31, 0.98);
+			background-color: rgba(34, 30, 31, 1.0);
 			display: inline-block;
 			padding: 2.5em 5em;
 			border-radius: 5px;
@@ -2222,7 +2222,7 @@ input, select, textarea {
 			}
 
 			#banner header p {
-				color: #2385d5;
+				color: #fff;
 				padding: 0;
 				font-style: normal;
 				margin: 0;

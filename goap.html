@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Jordan Martin's Portfolio Website</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="right-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header">
+
+					<!-- Logo -->
+						<h1><a href="index.html">Jordan Martin</a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li class="current">
+									<a href="projects.html">Projects</a>
+									<ul>
+										<li><a href="zenko.html">Zenko: A Fox's Tale</a></li>
+										<li><a href="goap.html">Goal Oriented Action Planning Sim</a></li>
+										<li><a href="engine.html">Custom C++ Engine</a></li>
+										<li><a href="balloonfight.html">Balloon Fight</a></li>
+										<li><a href="loot.html">LOOT</a></li>
+									</ul>
+								</li>
+								<li><a href="about.html">About Me</a></li>
+								<li><a href="blog.html">Blog</a></li>
+								<li><a href="https://raw.githubusercontent.com/jordantommartin/jordantommartin.github.io/main/docs/MARTIN_Jordan_Programmer.pdf" target="_blank">Resume</a></li>
+							</ul>
+						</nav>
+
+				</section>
+
+			<!-- Main -->
+				<section id="main">
+					<div class="container">
+						<div class="row">
+							<div class="col-8 col-12-medium">
+
+								<!-- Content -->
+									<article class="box post">
+										<a id="zenko" href="#zenko" class="image featured"><img src="images/zenko.png" alt="" /></a>
+										<header>
+											<h2>Zenko: A Fox's Tale</h2>
+											<p>Capstone Project / Unreal Engine</p>
+										</header>
+										<p>
+											Zenko: A Fox's Tale is a 3D Action-Plaformer being developed by Wolf Packtics, an interdisciplinary team of 17 people including programmers, artists, and producers.
+											The game is about a swift fox named Zenko that can jump, pounce, and dash his way through old ruins to chase down spirits to rebuild a broken shrine. 
+											Zenko can also swap realms to find hidden platforms and secrets throughout the levels. The game was made for players who love to explore and was inspired by games like Ori and the Blind Forest and Spirit of the North.
+										</p>
+										<header>
+											<h3>Gameplay Trailer</h3>
+										</header>
+										<div class="embed-responsive embed-responsive-16by9">
+										<iframe width="90%" height="400" src="https://www.youtube.com/embed/wB_pna9Vtmw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+									</p>
+										<section>
+											<header>
+												<h3>Custom Destructible Mesh Objects</h3>
+											</header>
+											<p>
+												One of the ideas we had discussed when we created Zenko was the idea that the physical world would be destroyed, while the spirit realm represents the past where structures were still intact.
+												I was tasked with making this a reality and started working with destructible meshes to manifest this idea.
+											</p>
+											<p>
+												Using the Apex destruction plugin, I was able to manipulate destructible meshes in a way that we could "rewind" the destruction. 
+												The object uses a combination of destructible meshes, poseable meshes, and static meshes to cycle between different states that dictate which mesh to use and which transformations to apply to the pieces.
+											</p>
+											<p>
+												Once I had this in place, I was able to connect this object to our spirit realm swap mechanic so that when Zenko switches realms, the object will build or destroy itself.
+												We have plans to create obstacles from these objects and create a shrine that can be rebuilt throughout the game.
+											</p>
+											<header style="padding-top: 0;">
+												<p style="padding-bottom: 0;">Rewinding Destructible Meshes connected to Spirit Realm Swap</p>
+											</header>
+											<video width="100%" controls="controls">
+												<source src="images//DestructibleRockPlatform.mp4" type="video/mp4">
+											</video>												
+										</p>
+										<!-- <div class="row">
+												<div class="col-6 col-12-medium">
+											<p>
+												In addition, I created documentation for our designers to use in order to generate these types of objects and place them throughout levels.
+											</p>
+										</div>
+											<div class="col-6 col-12-medium">
+											<a href="https://raw.githubusercontent.com/jordantommartin/jordantommartin.github.io/master/DestructibleMeshPipelineInstructions.pdf" target="_blank" class="button icon solid fa-file-alt">DMPipelineInstructions.pdf</a>
+										</div>
+										</div> -->
+										</section>
+										<section>
+											<header>
+												<h3>Movement Controller</h3>
+											</header>
+											<p>
+												Zenko's movement controller was our first major task and I was able to contribute by working on his abilities in the game.
+												These included his dash and his pounce. I created the dash by taking Zenko's forward vector and normalizing it. Then multiplying this by a certain amount to dash forward.
+												I improved upon the pounce by adding a bounce back as well as a particle effect for when he touches the ground.
+											</p>
+
+											<div class="row">
+												<div class="col-6 col-12-medium">
+												<header style="padding-top: 0;">
+													<p style="padding-bottom: 0;">Zenko's Dash</p>
+												</header>
+												<img width="100%" height="60%" src="/images/ZenkoDash.gif"></img>
+												</div>
+												<div class="col-6 col-12-medium">
+												<header style="padding-top: 0;">
+													<p style="padding-bottom: 0;">Zenko's Pounce</p>
+												</header>
+												<img width="100%" height="60%" src="/images/ZenkoPounce.gif"></img>
+												</div>
+											</div>
+										</section>
+										<section>
+											<header>
+												<h3>GameAnalytics</h3>
+											</header>
+											<p>
+												I also integrated GameAnalytics API with our project to record important metrics, such as the amount of time a section of the level took
+												or how many secret shrines a player was able to find. I was able to do this by creating an AnalyticsManager blueprint with functions for sending API
+												requests on behalf of each situation we wanted to record.
+											</p>
+										</section>
+									</article>
+
+							</div>
+							<div class="col-4 col-12-medium">
+
+								<!-- Sidebar -->
+								<section class="box">
+									<header>
+										<h3>Other Projects</h3>
+									</header>
+									<ul class="divided">
+										<li><a href="zenko.html">Zenko: A Fox's Tale</a></li>
+										<li><a href="goap.html">Goal Oriented Action Planning Sim</a></li>
+										<li><a href="engine.html">Custom C++ Game Engine</a></li>
+										<li><a href="balloonfight.html">Balloon Fight</a></li>
+										<li><a href="loot.html">68K Assembly LOOT</a></li>
+									</ul>
+								</section>
+
+							</div>
+						</div>
+					</div>
+				</section>	
+
+			<!-- Footer -->
+			<section id="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<section>
+								<ul class="social">
+									<li><a class="icon brands fa-github" href="https://github.com/jordantommartin"><span class="label">Github</span></a></li>
+									<li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/jordantommartin/"><span class="label">LinkedIn</span></a></li>
+									<li><a class="icon fa-envelope" href="mailto:jordantommartin@gmail.com"><span class="label">LinkedIn</span></a></li>
+								</ul>
+							</section>
+						</div>
+					</div>
+				</div>
+			</section>
+
+				
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

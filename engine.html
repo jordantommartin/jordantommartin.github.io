@@ -45,23 +45,132 @@
 
 								<!-- Content -->
 									<article class="box post">
-										<a id="superpaulbox" href="#superpaulbox" class="image featured"><img src="images/superpaulbox.png" alt="" /></a>
+										<a id="engine" class="image featured"><img src="images/engine.png" alt="" /></a>
 										<header>
-											<h2>Super Paul Box</h2>
-											<p>Programming 2 Team Project / OpenGL and Custom C++ Engine</p>
+											<h2>Custom C++ Engine</h2>
+											<p>Programming 2 Individual Project / C++ and OpenGL</p>
+										</header>
+										<!-- <table style="width:100%">
+											<tr>
+											  <th style="width:30%">Class</th>
+											  <th>Description</th>
+											</tr>
+											<tr>
+											  <td>Templated Singly Linked List</td>
+												  <td>
+													<ul>
+														<li>Templates and Iterators</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+												<td>Templated Vector</td>
+													<td>
+													  <ul>
+														  <li>Templates and Iterators, In place of STL container</li>
+													  </ul>
+												  </td>
+											  </tr> 
+											<tr>
+												<td>Templated HashMap</td>
+													<td>
+													<ul>
+														<li></li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+												<td>Datum</td>
+													<td>
+													<ul>
+														<li>Data storage container, uses RTTI, data type at runtime</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+												<td>Scope</td>
+													<td>
+													<ul>
+														<li>Table used in conjunction with Datum to form hierarchal database. Scopes are tables of Datum.</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+												<td>Attributed</td>
+													<td>
+													<ul>
+														<li>An Attributed scope. Pre-define attributes that get populated at runtime. Mirror native compile time classes with scopes and datum. Attributed defined in type manager.</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+												<td>Parse Coordinator and Table Parser</td>
+													<td>
+													<ul>
+														<li>Chain of responsibility. Json Files passed to parse Coordinator, adds existing parse helpers to its list. If parse helper is capable of parsing the file's grammar. Creates scopes and datums with the provided info.</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+												<td>Factory</td>
+													<td>
+													<ul>
+														<li>Abstract base class and macro to create concrete classes based on name received from information in json file. Emulate a virtual constructor in C++ and store factories in a manager so we can instantiate objects of a given type at runtime by name.</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+												<td>Entity</td>
+													<td>
+													<ul>
+														<li>Attributed scope that contains prescribed members that allow hierarchy of entities within a scene. Entity are parents to other entities.</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+												<td>Action</td>
+													<td>
+													<ul>
+														<li>Attributed scope that represents actions for entities. Attached to entities and provide functionality by modifying or calling other actions.</li>
+													</ul>
+												</td>
+											</tr>
+			
+											<tr>
+												<td>Event</td>
+													<td>
+													<ul>
+														<li>Observer pattern. Scubscribe to specific EventPublishers. Allows for actions to be executed only when the Publisher delivers the event to the subscriber. Skips polling every single action on update ticks</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+												<td>Reaction</td>
+													<td>
+													<ul>
+														<li></li>
+													</ul>
+												</td>
+											</tr>
+											
+										</table>  -->
+										<ul class="actions">
+											<li><a href="https://github.com/jordantommartin/FIEAGameEngine" class="button icon brands fa-github" target="_blank">Github Repo</a></li>
+										</ul>
+										<header>
+											<h3>Super Paul Box</h3>
 										</header>
 										<p>
-											Super Paul Box was a team project between myself and 4 other programmers using a custom C++ engine that we created over
-											the course of the Spring semester. Specifically, I created both the Audio Manager and Score Keeping system. This was accomplished by
+											Super Paul Box was a team project between myself and 4 other programmers built on top of the Custom C++ Engine.
+											Specifically, I created both the Audio Manager and Score Keeping system. This was accomplished by
 											utilizing an event queue in our engine to subscribe to Audio or Score events.
 										</p>
+										
 										<header>
 											<h3>Demo</h3>
 										</header>
 										<iframe width="90%" height="400" src="https://www.youtube.com/embed/dUJCSVVuIQo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-										<ul class="actions">
-											<li><a href="https://github.com/jordantommartin/FIEAGameEngine" class="button icon brands fa-github" target="_blank">Check out the Code</a></li>
-										</ul>
+
 										
 										<!-- <section>
 											<header>
@@ -112,18 +221,14 @@ struct PlaySoundEvent {
 
 			<!-- Footer -->
 			<section id="footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<section>
-								<ul class="social">
-									<li><a class="icon brands fa-github" href="https://github.com/jordantommartin"><span class="label">Github</span></a></li>
-									<li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/jordantommartin/"><span class="label">LinkedIn</span></a></li>
-									<li><a class="icon fa-envelope" href="mailto:jordantommartin@gmail.com"><span class="label">LinkedIn</span></a></li>
-								</ul>
-							</section>
+				<div class="col-12">
+						<div id="copyright">
+							<ul class="social">
+								<li><a class="icon brands fa-github" href="https://github.com/jordantommartin"><span class="label">Github</span></a></li>
+								<li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/jordantommartin/"><span class="label">LinkedIn</span></a></li>
+								<li><a class="icon fa-envelope" href="mailto:jordantommartin@gmail.com"><span class="label">LinkedIn</span></a></li>
+							</ul>
 						</div>
-					</div>
 				</div>
 			</section>
 

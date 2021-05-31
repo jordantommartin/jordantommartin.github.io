@@ -45,91 +45,50 @@
 
 								<!-- Content -->
 									<article class="box post">
-										<a id="zenko" href="#zenko" class="image featured"><img src="images/zenko.png" alt="" /></a>
+										<a id="goap" class="image featured"><img src="images/theme-park.jpg" alt="" /></a>
 										<header>
-											<h2>Zenko: A Fox's Tale</h2>
-											<p>Capstone Project / Unreal Engine</p>
+											<h2>Goal Oriented Action Planning Sim</h2>
+											<p>Personal Programming Project / Unity</p>
 										</header>
 										<p>
-											Zenko: A Fox's Tale is a 3D Action-Plaformer being developed by Wolf Packtics, an interdisciplinary team of 17 people including programmers, artists, and producers.
-											The game is about a swift fox named Zenko that can jump, pounce, and dash his way through old ruins to chase down spirits to rebuild a broken shrine. 
-											Zenko can also swap realms to find hidden platforms and secrets throughout the levels. The game was made for players who love to explore and was inspired by games like Ori and the Blind Forest and Spirit of the North.
+											The personal programming project is an individual effort to explore a specific area of video game programming that I am interested in. 
+											I have chosen to focus on <b>Goal Oriented Action Planning</b> for artificial intelligence in games. Not only will I explore how to create a GOAP AI system,
+											but I will apply this system to a theme park tycoon game where you can easily see the goals of each agent in the simulation.
 										</p>
 										<header>
-											<h3>Gameplay Trailer</h3>
+											<h3>Project Objectives</h3>
 										</header>
-										<div class="embed-responsive embed-responsive-16by9">
-										<iframe width="90%" height="400" src="https://www.youtube.com/embed/wB_pna9Vtmw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-										</div>
-									</p>
-										<section>
-											<header>
-												<h3>Custom Destructible Mesh Objects</h3>
-											</header>
-											<p>
-												One of the ideas we had discussed when we created Zenko was the idea that the physical world would be destroyed, while the spirit realm represents the past where structures were still intact.
-												I was tasked with making this a reality and started working with destructible meshes to manifest this idea.
-											</p>
-											<p>
-												Using the Apex destruction plugin, I was able to manipulate destructible meshes in a way that we could "rewind" the destruction. 
-												The object uses a combination of destructible meshes, poseable meshes, and static meshes to cycle between different states that dictate which mesh to use and which transformations to apply to the pieces.
-											</p>
-											<p>
-												Once I had this in place, I was able to connect this object to our spirit realm swap mechanic so that when Zenko switches realms, the object will build or destroy itself.
-												We have plans to create obstacles from these objects and create a shrine that can be rebuilt throughout the game.
-											</p>
-											<header style="padding-top: 0;">
-												<p style="padding-bottom: 0;">Rewinding Destructible Meshes connected to Spirit Realm Swap</p>
-											</header>
-											<video width="100%" controls="controls">
-												<source src="images//DestructibleRockPlatform.mp4" type="video/mp4">
-											</video>												
+										<p>
+											<ul>
+												<li>Create a GOAP AI system in Unity</li>
+												<li>Integrate the GOAP AI system into an agent-based simulation</li>
+												<li>Show clear visualizations in real-time of the underlying GOAP AI system</li>
+												<li>Create a theme park tycoon game out of the GOAP AI system</li>
+											</ul>
 										</p>
-										<!-- <div class="row">
-												<div class="col-6 col-12-medium">
-											<p>
-												In addition, I created documentation for our designers to use in order to generate these types of objects and place them throughout levels.
-											</p>
-										</div>
-											<div class="col-6 col-12-medium">
-											<a href="https://raw.githubusercontent.com/jordantommartin/jordantommartin.github.io/master/DestructibleMeshPipelineInstructions.pdf" target="_blank" class="button icon solid fa-file-alt">DMPipelineInstructions.pdf</a>
-										</div>
-										</div> -->
-										</section>
 										<section>
 											<header>
-												<h3>Movement Controller</h3>
+												<h3>Blog Posts</h3>
 											</header>
-											<p>
-												Zenko's movement controller was our first major task and I was able to contribute by working on his abilities in the game.
-												These included his dash and his pounce. I created the dash by taking Zenko's forward vector and normalizing it. Then multiplying this by a certain amount to dash forward.
-												I improved upon the pounce by adding a bounce back as well as a particle effect for when he touches the ground.
-											</p>
-
-											<div class="row">
-												<div class="col-6 col-12-medium">
-												<header style="padding-top: 0;">
-													<p style="padding-bottom: 0;">Zenko's Dash</p>
-												</header>
-												<img width="100%" height="60%" src="/images/ZenkoDash.gif"></img>
-												</div>
-												<div class="col-6 col-12-medium">
-												<header style="padding-top: 0;">
-													<p style="padding-bottom: 0;">Zenko's Pounce</p>
-												</header>
-												<img width="100%" height="60%" src="/images/ZenkoPounce.gif"></img>
-												</div>
-											</div>
-										</section>
-										<section>
-											<header>
-												<h3>GameAnalytics</h3>
-											</header>
-											<p>
-												I also integrated GameAnalytics API with our project to record important metrics, such as the amount of time a section of the level took
-												or how many secret shrines a player was able to find. I was able to do this by creating an AnalyticsManager blueprint with functions for sending API
-												requests on behalf of each situation we wanted to record.
-											</p>
+											<table style="width:100%">
+												<tr>
+												  <th style="width:20%">Week</th>
+												  <th>Content</th>
+												</tr>
+												<tr>
+												  <td><a href="blog.html#05-28-2021">Week 0</a></td>
+													  <td>
+														<ul>
+															<li>Project Objectives</li>
+															<li>What is Goal Oriented Action Planning?</li>
+															<li>How does Goal Oriented Action Planning Work?</li>
+															<li>Why use Goal Oriented Action Planning?</li>
+															<li>Schedule</li>
+														</ul>
+													</td>
+												</tr>
+												
+											  </table> 
 										</section>
 									</article>
 
@@ -157,18 +116,14 @@
 
 			<!-- Footer -->
 			<section id="footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<section>
-								<ul class="social">
-									<li><a class="icon brands fa-github" href="https://github.com/jordantommartin"><span class="label">Github</span></a></li>
-									<li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/jordantommartin/"><span class="label">LinkedIn</span></a></li>
-									<li><a class="icon fa-envelope" href="mailto:jordantommartin@gmail.com"><span class="label">LinkedIn</span></a></li>
-								</ul>
-							</section>
+				<div class="col-12">
+						<div id="copyright">
+							<ul class="social">
+								<li><a class="icon brands fa-github" href="https://github.com/jordantommartin"><span class="label">Github</span></a></li>
+								<li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/jordantommartin/"><span class="label">LinkedIn</span></a></li>
+								<li><a class="icon fa-envelope" href="mailto:jordantommartin@gmail.com"><span class="label">LinkedIn</span></a></li>
+							</ul>
 						</div>
-					</div>
 				</div>
 			</section>
 

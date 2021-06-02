@@ -37,15 +37,44 @@
 
 				</section>
 
-<!-- Dev Diary Week 0 -->
 <section id="main">
 	<div class="container">
 
-		<!-- Content -->
-			<article id="05-28-2021" class="box post">
+		<!-- Week 2 -->
+		<article id="05-28-2021" class="box post">
+			<header>
+				<h2>Dev Diary Week 2</h2>
+				<p>June 2nd, 2021</p>
+			</header>
+			<p>
+				During this week I worked on researching other implementations of GOAP AI systems and worked on getting a simple action working through the planner.
+
+				To start off, I got familiar with Unreal's NavMesh by moving some agents around. I created a C++ class for an NPC and created a function to
+				find a random point on the NavMesh and then input this into the MoveTo function on the AIController.
+			</p>
+				<img style="width:25%" src="images/MoveToPoint.gif" alt="" />
+			<p>
+				Once I had this working, I started work on the GOAP system. I created 5 C++ classes to make the system:
+				<ul>
+					<li>Agent</li>
+					<li>Action</li>
+					<li>Planner</li>
+					<li>World</li>
+					<li>World States</li>
+				</ul>
+			</p>
+
+
+			
+
+			
+		</article>
+
+		<!-- Week 1 -->
+			<article id="05-26-2021" class="box post">
 				<header>
-					<h2>Dev Diary Week 0</h2>
-					<p>May 28th, 2021</p>
+					<h2>Dev Diary Week 1</h2>
+					<p>May 26th, 2021</p>
 				</header>
 				<p>
 					Welcome to the start of my Personal Programming Project! This is an individual effort to explore a specific area of video game programming that I am interested in.
@@ -138,17 +167,10 @@
 						  <th>Deliverables</th>
 						</tr>
 						<tr>
-						  <td>Week 0</td>
-						  	<td>
-								<ul>
-									<li>Research and prepare presentation to give in class</li>
-								</ul>
-							</td>
-						</tr>
-						<tr>
 							<td>Week 1</td>
 								<td>
 								  <ul>
+									<li>Research and prepare presentation to give in class</li>
 									<li>Further Research</li>
 									<li>Agent simulation moving with Basic NavMeshes</li> 
 								  </ul>

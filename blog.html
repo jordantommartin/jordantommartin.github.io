@@ -46,25 +46,138 @@
 				<h2>Dev Diary Week 2</h2>
 				<p>June 2nd, 2021</p>
 			</header>
+			<header>
+				<h3>Research</h3>
+			</header>
 			<p>
-				During this week I worked on researching other implementations of GOAP AI systems and worked on getting a simple action working through the planner.
-
-				To start off, I got familiar with Unreal's NavMesh by moving some agents around. I created a C++ class for an NPC and created a function to
-				find a random point on the NavMesh and then input this into the MoveTo function on the AIController.
+				One of the first things I worked on was <b>researching</b> other implementations of GOAP AI systems.
+				I had found a Udemy lecture titled <a href="https://www.udemy.com/course/ai_with_goap/">Advanced AI For Games with Goal-Oriented Action Planning</a> that was very helpful in 
+				explaining the concepts in detail while providing a software design to get started with. This tutorial was taught using Unity and coded in C#.
 			</p>
-				<img style="width:25%" src="images/MoveToPoint.gif" alt="" />
 			<p>
-				Once I had this working, I started work on the GOAP system. I created 5 C++ classes to make the system:
+				Using this tutorial, I created 5 classes to start making the system:
 				<ul>
-					<li>Agent</li>
-					<li>Action</li>
-					<li>Planner</li>
-					<li>World</li>
-					<li>World States</li>
+					<li><b>Agent</b> - Any of the NPCs that will be controlled using the GOAP system</li>
+					<ul><ul>
+						<li>Contains a lists of goals and further subgoals</li>
+						<li>Using the actions it has available, asks the planner a list of actions to accomplish the goal</li>
+						<li>If it has a list of actions, dequeues and performs each action</li>
+					</ul></ul>
+					<li><b>Action</b> - Any of the actions that an agent can be use to acheive a goal</li>
+					<ul><ul>
+						<li>Contains a list of preconditions and after effects to be checked with the WorldStates</li>
+						<li>Determines if the action is acheivable given the current WorldState</li>
+					</ul></ul>
+					<li><b>Planner</b> - Builds a graph of possible plans and sorts it based on cost of actions</li>
+					<ul><ul>
+						<li>Uses a linked list style node to build graphs of actions</li>
+						<li>Given a list of possible actions, a goal to acheive, and the current WorldStates, builds a graph of possible plans</li>
+						<li>Sorts all of the possible plans based on costs and return a list of actions for the chosen plan</li>
+					</ul></ul>
+					<li><b>World States</b> - A class that maintains a map of <string, int> pairs representing states of the world</li>
+					<ul><ul>
+						<li>Each state represents a fact within the world</li>
+						<li>Contains methods to check, modify, add, and remove states</li>
+					</ul></ul>
+					<li><b>World</b> - A singleton that allows access to the map of WorldStates</li>
+					<ul><ul>
+						<li>Allows access to the WorldStates from any class</li>
+					</ul></ul>
 				</ul>
 			</p>
 
+			<p>
+				Once I had the beginnings of a GOAP system in place, I was able to create a simple one-step plan. 
+				In this hospital example, the patient was a given a goal of "isWaiting" meaning that he would want to go to the waiting room.
+				He was then given an action called "GoToHospital" with a target of the Waiting Area in the game. It had a cost of one with no preconditions. 
+				It had one after effect that would add a state of <"isWaiting", 1> to the map, indicating that it is true that the patient is now waiting.
+			</p>
+			<p>
+				With this goal and action given to the agent, I was able to execute the simple one-step plan below! From here, I will continue to watch this tutorial as it also 
+				explains how to create multi-step plans.
+			</p>
+			<video width="50%" controls="controls">
+				<source src="images//UnityDemoWeek2.mp4" type="video/mp4">
+			</video>
+			<p></p>
+			<header>
+				<h3>Moving to Unreal</h3>
+			</header>
+			<p>
+				
+				With a much better understanding from the tutorial, I wanted to <b>move my project to Unreal</b> as I am looking to get more experience in coding C++ for Unreal Engine 4.
+				To start off, I got familiar with Unreal's <b>NavMesh</b> by moving some agents around. I created a C++ class for an NPC and created a function to
+				find a random point on the NavMesh and then input this into the MoveTo function on the AIController.
+			</p>
+				<img style="width:40%" src="images/MoveToPoint.gif" alt="" />
+			<p>
+			<p>
+				From here, I worked on setting up C++ classes using the same software design as the tutorial mentioned eariler. 
+				This is currently in progress, as I am working on how to set this up in C++ which has different methods.
+			</p>
 
+			<header>
+				<h3>Challenges</h3>
+			</header>
+			<p>
+				<ul>
+					<li>I have not had experience with AI controllers in Unreal up to this point. Creating a simple bot to go to random points was helpful in bringing me up to speed.</li>
+					<li>Another challenge was writing C++ code from a C# template, as C++ does not have all the same features of C#, such as using LINQ to sort maps.</li>
+					<li>Lastly, the concepts of GOAP can get complex, especially when learning from a tutorial. However, rewriting the system in C++ is helping to cement the concepts in my mind.</li>
+				</ul>
+			</p>
+			<header>
+				<h3>Deliverables and Estimates</h3>
+			</header>
+			<p>
+				Time tracking for Week 2 can be viewed in this spreadsheet: // INSERT CSV HERE
+			</p>
+			<table style="width:100%">
+				<tr>
+				  <th style="width:30%">Deliverable</th>
+				  <th style="width:50%">Tasks</th>
+				  <th style="width:20%">Total Estimate</th>
+				</tr>
+				<tr>
+					<td>Finish setting up the Simple plan GOAP system in Unreal</td>
+						<td>
+						  <ul>
+							<li>Complete the 5 required GOAP classes- 8 hrs</li>
+							<li>Create an action and goal to move a character to a point - 2 hours</li>
+						  </ul>
+					  </td>
+					  <td>10 hours</td>
+				</tr>
+				<tr>
+					<td>Create a multi-step plan with multiple agents from Tutorial</td>
+						<td>
+						  <ul>
+							<li>Create a multi-step plan - 1 hour</li>
+							<li>Use multiple agents in a plan - 1 hour</li>
+						  </ul>
+					  </td>
+					  <td>2 hours</td>
+				</tr>
+				<tr>
+					<td>Add multi-step plans with multiple agents to Unreal</td>
+						<td>
+						  <ul>
+							<li>Create C++ classes for multi-step/multiple agent plans - 2 hours</li>
+						  </ul>
+					  </td>
+					  <td>2 hours</td>
+				</tr>
+				<tr>
+					<td>Create Dev Post Week 3</td>
+						<td>
+						  <ul>
+							<li>Write post, take screenshots, record videos - 1hr 30m</li>
+							<li>Export toggl data and list deliverables/tasks - 30 min</li>
+						  </ul>
+					  </td>
+					  <td>2 hours</td>
+				</tr>
+				</table>
 			
 
 			

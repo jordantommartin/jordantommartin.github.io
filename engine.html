@@ -50,7 +50,7 @@
 											<h2>Custom C++ Engine</h2>
 											<p>Programming 2 Individual Project / C++ and OpenGL</p>
 										</header>
-										<!-- <table style="width:100%">
+										<table style="width:100%">
 											<tr>
 											  <th style="width:30%">Class</th>
 											  <th>Description</th>
@@ -59,23 +59,29 @@
 											  <td>Templated Singly Linked List</td>
 												  <td>
 													<ul>
-														<li>Templates and Iterators</li>
+														<li>A templated Singly Linked List that uses nodes to hold a piece of data and point to the next node in the list.</li>
+														<li>Provides custom implementations of copy and move semantics.</li>
+														<li>Has a custom iterator that allows nodes to be incremented, compared, and dereferenced.</li>
+														
 													</ul>
 												</td>
 											</tr>
 											<tr>
 												<td>Templated Vector</td>
 													<td>
-													  <ul>
-														  <li>Templates and Iterators, In place of STL container</li>
-													  </ul>
+														<ul>
+															<li>A templated Vector that an array pointer to hold data.</li>
+															<li>Provides custom implementations of copy and move semantics.</li>
+															<li>Has a custom iterator that allows elements at each index to be incremented, added/substracted, compared, and dereferenced.</li>
+														</ul>
 												  </td>
 											  </tr> 
 											<tr>
 												<td>Templated HashMap</td>
 													<td>
 													<ul>
-														<li></li>
+														<li>A templated HashMap that contains a Vector filled with SLists that contains Key, Value pairs.</li>
+														<li>Includes a hash function object for hashing keys and a equality function object for comparing values.</li>
 													</ul>
 												</td>
 											</tr>
@@ -83,7 +89,9 @@
 												<td>Datum</td>
 													<td>
 													<ul>
-														<li>Data storage container, uses RTTI, data type at runtime</li>
+														<li>Data storage container for an array of values that can be defined at runtime.</li>
+														<li>Data types can be either primitve or user-defined.</li>
+														<li>Introduces custom Runtime Type Identification data type which allows check an object's type before casting it.</li>
 													</ul>
 												</td>
 											</tr>
@@ -91,15 +99,19 @@
 												<td>Scope</td>
 													<td>
 													<ul>
-														<li>Table used in conjunction with Datum to form hierarchal database. Scopes are tables of Datum.</li>
+														<li>Uses a hashmap to create pairs of strings and Datums, known as a table.</li>
+														<li>Each Datum can contain pointers to further Scopes, thereby forming a hierarchical data structure.</li>
+														<li>Each nested scope has a pointer to its parent scope, allowing search down or up the hierarchy.</li>
 													</ul>
 												</td>
 											</tr>
 											<tr>
-												<td>Attributed</td>
+												<td>Attributed Scope</td>
 													<td>
 													<ul>
-														<li>An Attributed scope. Pre-define attributes that get populated at runtime. Mirror native compile time classes with scopes and datum. Attributed defined in type manager.</li>
+														<li>A pure virtual class that inherits from the Scope class and adds the ability to populate Scopes using schema at compile time.</li>
+														<li>Attributes allow us to mirror C++ classes within scopes, with the added ability of allowing us to set data members of these classes during runtime.</li>
+														<li>A type manager is introduced which registers any class that inherits from an Attributed Scope.</li>
 													</ul>
 												</td>
 											</tr>
@@ -107,7 +119,10 @@
 												<td>Parse Coordinator and Table Parser</td>
 													<td>
 													<ul>
-														<li>Chain of responsibility. Json Files passed to parse Coordinator, adds existing parse helpers to its list. If parse helper is capable of parsing the file's grammar. Creates scopes and datums with the provided info.</li>
+														<li>A parser that translates JSON files into a configuration that can be used to populate Attributed Scopes.</li>
+														<li>Implements chain of responsibility design pattern when parsing, which allows for different kinds of JSON grammars to be read.</li>
+														<li>The parse coordinator is given a JSON file which searches through its list of parse helpers to find one that will handle this type of grammar.</li>
+														<li>Once a parse helper is capable, the JSON configuration is read. If no helper if capable, the request is not handled.</li>
 													</ul>
 												</td>
 											</tr>
@@ -115,7 +130,9 @@
 												<td>Factory</td>
 													<td>
 													<ul>
-														<li>Abstract base class and macro to create concrete classes based on name received from information in json file. Emulate a virtual constructor in C++ and store factories in a manager so we can instantiate objects of a given type at runtime by name.</li>
+														<li>Templated abstract base class used to create concrete objects from their default contructor.</li>
+														<li>Derived factories for each type of class are generated through a macro and stored in a FactoryManager, which can be used to instantiate objects using the class name.</li>
+														<li>Game engine will receive the class name from the parse JSON configuration and instantiate objects of that class at runtime.</li>
 													</ul>
 												</td>
 											</tr>
@@ -123,7 +140,9 @@
 												<td>Entity</td>
 													<td>
 													<ul>
-														<li>Attributed scope that contains prescribed members that allow hierarchy of entities within a scene. Entity are parents to other entities.</li>
+														<li>A wrapper for an Attributed Scope that populates its tables at runtime using the Factory and JSON configuration.</li>
+														<li>Similar to Unity's concept of a GameObject, which can contain further GameObjects within itself.</li>
+														<li>Contains a virtual update method which can be implemented in derived classes for game logic.</li>
 													</ul>
 												</td>
 											</tr>
@@ -131,7 +150,11 @@
 												<td>Action</td>
 													<td>
 													<ul>
-														<li>Attributed scope that represents actions for entities. Attached to entities and provide functionality by modifying or calling other actions.</li>
+														<li>Abstract base class that extends from attributed scope and used to modify entities.</li>
+														<li>Actions are defined in JSON configuration and attached in the hierarchy underneath an entities.</li>
+														<li>Contains a virtual update method which can be implemented in derived classes for game logic.</li>
+														<li>ActionLists allow for multiple actions to be invoked, similar to a functions for C++ classes.</li>
+														<li>Actions created include: ActionIf, ActionIncrement, ActionExpression, ActionCreateAction, ActionDestroyAction</li>
 													</ul>
 												</td>
 											</tr>
@@ -140,7 +163,9 @@
 												<td>Event</td>
 													<td>
 													<ul>
-														<li>Observer pattern. Scubscribe to specific EventPublishers. Allows for actions to be executed only when the Publisher delivers the event to the subscriber. Skips polling every single action on update ticks</li>
+														<li>Event system that implements the Observer design pattern. Allows us to skip polling every action on the Update methods, which is expensive.</li>
+														<li>Any class that derives from the EventSubcriber class can subscribe to an EventPublisher. Calling the Deliver method in the publisher will then call the notify method in the subscriber.</li>
+														<li>Events carry a templated data "payload" and can be delivered immediately or queued for future delivery.</li>
 													</ul>
 												</td>
 											</tr>
@@ -148,12 +173,13 @@
 												<td>Reaction</td>
 													<td>
 													<ul>
-														<li></li>
+														<li>Calls an ActionList in response to an event delivery. Intended to act as a function call.</li>
+														<li>Allows for us to use the payload from the event as a parameter to the Actions that are called in the ActionList.</li>
 													</ul>
 												</td>
 											</tr>
 											
-										</table>  -->
+										</table>
 										<ul class="actions">
 											<li><a href="https://github.com/jordantommartin/FIEAGameEngine" class="button icon brands fa-github" target="_blank">Github Repo</a></li>
 										</ul>

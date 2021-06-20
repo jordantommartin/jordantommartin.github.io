@@ -66,6 +66,16 @@
 				class send the string onto the blueprint. Because I had spent so much time with this issue, I decided not to complete the UI widget and move onto some of the other tasks I had promised for this week.
 			</p>
 			<header>
+				<h3>Adding Multi-Step plans and Multiple Agents to the Unreal Project</h3>
+			</header>
+			<p>
+				Next, I wanted to add the concepts I learned last week for multi-step plans and multiple agents into the Unreal project. For this, I would try to showcase two scenarios. The first would be an agent with multiple steps, which would be a Janitor who makes his way to the front entry of the park and clock in, goes to the break room, and wait for the bathroom to become dirty. At that point he would go to the bathroom and clean them. The second scenario would be with multiple agents, where a Customer enters the line for a ride and then gets helped by the Ride Operator.</p>
+			<p>
+				I added the code to the projects but encountered several issues when trying to test the functionality. The agents would not complete their tasks, so I debugged the code and found in many different places
+				that my data structures were being altered and replaced with garbage data whenever I tried to copy data from one data structure to another. I stepped into the copy and
+				found that it was calling a copy function from the Unreal Engine, even though I was only using Vanilla C++ for these data structures. I was able to find workarounds each time, but it caused a lot of issues and even caused the behavior to change across multiple tests with the same data. Due to this reason, I was not able to record a demo video this week. 
+			</p>
+			<header>
 				<h3>Adding Resources to the World</h3>
 			</header>
 			<p>

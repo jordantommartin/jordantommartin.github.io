@@ -40,6 +40,70 @@
 <section id="main">
 	<div class="container">
 
+		<!-- Week 4 -->
+		<article id="06-19-2021" class="box post">
+			<header>
+				<h2>Dev Diary Week 4</h2>
+				<p>June 2nd, 2021</p>
+			</header>
+			<p>
+				This week, my focus was to make progress on my Unreal project because most of my progress so far has been made in Unity. I started where I left off
+				last week and worked on some of the debug elements for the game. These included the spawner for agents and the UI widget to show the current plan of
+				a selected agent.
+			</p>
+			<header>
+				<h3>Debug Elements</h3>
+			</header>
+			<p>The first thing I wanted to complete was a spawner for my agents. It was simple in functionality, so I created it as a blueprint and had it spawn an actor
+				of type Janitor on its location with a timed delay. However, I had issues with this because once I spawned the actor, it would not do any of the actions it
+				was assigned to do, even though I checked it's action queue and it did have actions assigned. If the actor was placed onto the map, there was no issue. I eventually debugged the agent enough to figure out it's AIController was not being set. Through some research I found that there is a setting that needs to be turned on in the blueprint if you wish to spawn the actor with an AIController and this is only applicable to the spawning of actors.
+			</p>
+			<p>
+				The second thing I tried to set up was a UI widget that would show the current plan of a selected agent. I started by setting up a widget with a Scroll Box that would
+				hold all the actions an agent is taking. The actions were currently being sent to the debug log through the Planner class, which I would then try to reroute to the UI
+				Widget. This proved to be an issue though as I was looking to use the delegate system to pass a string of text from the Planner to the UI Widget and update it at that moment. However, this proved to be an issue as you cannot use the DECLARE_DYNAMIC_MULTICAST_DELEGATE macro on a Vanilla C++ class, which made it impossible to send 
+				any event from that class to any blueprints. I was able to find a workaround by sending the string to another class which was already a UObject and then having that 
+				class send the string onto the blueprint. Because I had spent so much time with this issue, I decided not to complete the UI widget and move onto some of the other tasks I had promised for this week.
+			</p>
+			<header>
+				<h3>Adding Resources to the World</h3>
+			</header>
+			<p>
+				The last thing that I worked on this week was adding what would be known as resources to the world. Resources are any item that can be occupied by an agent and therefore needs to be tracked. An example of this would be a customer who is riding a roller coaster and no other agent can ride the roller coaster while that is happening. To accomplish this, each agent will have an inventory where they can store and track any resource that they are currently occupying. 
+			</p>
+			<p>
+				I followed the lectures for this concept and attempted to implement it in my Unreal project, but was running into the same issues from before regarding the copying of
+				elements from data structures.
+			</p>
+
+
+			<header>
+				<h3>Challenges</h3>
+			</header>
+			<p>
+				<ul>
+					<li>Spawning of agents, in regards to their AI Controllers.</li>
+					<li>Issues with Unreal's delegate system when using Vanilla C++ classes.</li>
+					<li>Debugging the planner to find issues with copying of elements inside data structures.</li>
+				</ul>
+			</p>		
+			<header>
+				<h3>What's Next</h3>
+			</header>	
+			<p>
+				After encountering multiple issues this week and reviewing the amount of time left until our next presentation, I have decided to pivot and move entirely to Unity for
+				the remainder of the project. I originally wanted to complete my project in Unreal to become more familiar with the processs, but I do not want to sacrifice the features of this project at the cost of debugging multiple issues for long periods of time. With this in mind, the plan for next week is:
+			</p>
+			<p>
+				<ul>
+					<li>Implement the inventory system in Unity.</li>
+					<li>Complete the entirety of the tutorial inside of Unity.</li>
+					<li>Create the UI for showing the plans of a currently focused agent.</li>
+					<li>Creating a theme park demo for the upcoming presentation.</li>
+				</ul>
+			</p>	
+		</article>
+
 		<!-- Week 3 -->
 		<article id="06-10-2021" class="box post">
 			<header>

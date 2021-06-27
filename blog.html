@@ -40,6 +40,131 @@
 <section id="main">
 	<div class="container">
 
+<!-- Week 5 -->
+<article id="06-26-2021" class="box post">
+	<header>
+		<h2>Dev Diary Week 5</h2>
+		<p>June 26th, 2021</p>
+	</header>
+	<p>
+		This week, I was able to solve some of core issues with my Unreal project that I struggled with last week and added some new features which help show off the simulation during next week's presentation.
+	</p>
+	<header>
+		<h3>Fix ALL the Bugs</h3>
+	</header>
+	<p>
+		During last week, I ran into several different issues with my Unreal project that impeded my progress. This week I was able solve these issues,
+		which allowed me to begin making progress.
+		<table style="width:100%">
+			<tr>
+			  <th style="width:40%">Bug</th>
+			  <th>Fix</th>
+			</tr>
+			<tr>
+				<td>When an agent was spawned, the AIController was never set. If it was placed in the level, the AIController worked fine.</td>
+					<td>
+					  <ul>
+						<li>Set the Auto Possess AI setting on the pawn to "Placed in World or Spawned"</li>
+						<img style="width:60%" src="images/Week5_Spawning.png" alt="" />
+					  </ul>
+				  </td>
+			</tr>
+			<tr>
+				<td>Vanilla C++ classes in Unreal cannot use the delegate system to pass variables to a blueprint function. 
+					This was blocking me from passing actions from the planner C++ class to the UI Widget Blueprint.</td>
+					<td>
+					  <ul>
+						<li>Delegates can only communicate between blueprints and classes which uses the UCLASS macro. I created a helper function in my Action class which derives from the UActorComponent class
+							to get around this issue.</li>
+						<img style="width:80%" src="images/Week5_DelegateExample.png" alt="" />
+					  </ul>
+				  </td>
+			</tr>
+			<tr>
+				<td>STL containers in Unreal can sometimes have unpredicatable behavior when copying elements.</td>
+					<td>
+					  <ul>
+						<li>After doing some research, it is generally advised against using STL containers in Unreal C++ code. I refactored all my code to use TArrays, TMaps, TQueues.</li>
+					  </ul>
+				  </td>
+			</tr>
+			<tr>
+				<td>Agents would never be able to reach their location because of their capsule colliders being too large.</td>
+					<td>
+					  <ul>
+						<li>On the agent C++ class, I created a custom trigger capsule that would detect if an agent collides with another agent. This condition also satisfies as reaching the 
+							exact destination.</li>
+							<img style="width:80%" src="images/Week5_TriggerCapsuleSetup.png" alt="" />
+							<img style="width:80%" src="images/Week5_TriggerCapsuleOverlap.png" alt="" />
+					  </ul>
+				  </td>
+			</tr>
+		  </table> 
+	</p>
+	<header>
+		<h3>Inventories</h3>
+	</header>
+	<div class="row">
+		<div class="col-8">
+			<p>
+				Once I had solved the issues listed above, I was able to complete adding inventories to each of the agents. Each agent will have its own inventory instance which allows
+				them to add and remove AActor pointers and find any AActor pointer with a certain tag. With this inventory system, we can have items in the world that belong to certain agents.
+				Then when executing a plan, the actions can access those inventories to check for certain items and quantities.
+				
+			</p>
+			<p>
+				For example, I've set up to where once a Customer agent gets in line for a ride, it will wait until a free ride to become available. Once that ride is available, it then adds 
+				the ride to its inventory and it is no longer free to any of the other customers.
+			</p>
+		</div>
+		<div class="col-4">
+			<img style="width:90%" src="images/Week5_Inventory.png" alt="" />
+		</div>
+	</div>
+
+	<header>
+		<h3>Game Elements</h3>
+	</header>
+	<p>
+		With those bugs aside, I was able to complete/add features to the Unreal project.
+		<ul>
+			<li>Added RTS style camera where you can select any agent by clicking on them and rotate/zoom</li>
+			<li>Speed buttons that allow you to change how fast the simulation is running</li>
+			<li>Watch window that shows the current plan of the agent that is selected</li>
+		</ul>
+	</p>
+	<p>
+		Below is a video that shows all of these elements in action.
+	</p>
+	<p>
+		<video width="50%" controls="controls">
+			<source src="images//Week5Demo.mp4" type="video/mp4">
+		</video>
+	</p>
+	<header>
+		<h3>Challenges</h3>
+	</header>
+	<p>
+		<ul>
+			<li>Collision on the agents required an additional custom capsule component.</li>
+			<li>The UI element still has many edge cases to work out before it can be used easily.</li>
+			<li>The Theme Park demo needs much more work before it is shown at presentation.</li>
+		</ul>
+	</p>		
+	<header>
+		<h3>What's Next</h3>
+	</header>	
+	<p>
+
+		<ul>
+			<li>Midpoint presentation slide deck</li>
+			<li>Creating a theme park demo for the upcoming presentation.</li>
+			<li>Mapping out all character agents and their actions in the simulation</li>
+			<li>Adding more complex behavior to the agents</li>
+		</ul>
+	</p>	
+</article>
+
 		<!-- Week 4 -->
 		<article id="06-17-2021" class="box post">
 			<header>
@@ -101,13 +226,10 @@
 				<h3>What's Next</h3>
 			</header>	
 			<p>
-				After encountering multiple issues this week and reviewing the amount of time left until our next presentation, I have decided to pivot and move entirely to Unity for
-				the remainder of the project. I originally wanted to complete my project in Unreal to become more familiar with the processs, but I do not want to sacrifice the features of this project at the cost of debugging multiple issues for long periods of time. With this in mind, the plan for next week is:
-			</p>
-			<p>
+				Next week is the mid-point presentation! Which means I will be focusing on a pres // FIX THIS
 				<ul>
-					<li>Implement the inventory system in Unity.</li>
-					<li>Complete the entirety of the tutorial inside of Unity.</li>
+					<li>Implement the inventory system in Unreal.</li>
+					<li>Add a camera that allows you to select an agent.</li>
 					<li>Create the UI for showing the plans of a currently focused agent.</li>
 					<li>Creating a theme park demo for the upcoming presentation.</li>
 				</ul>

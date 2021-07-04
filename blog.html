@@ -43,32 +43,161 @@
 <!-- Week 6 -->
 <article id="06-26-2021" class="box post">
 	<header>
-		<h2>Dev Diary Week 6 - Mid-Semester Update</h2>
+		<h2>Dev Diary Week 6 - Mid-Semester Update Presentation</h2>
 		<p>July 3rd, 2021</p>
 	</header>
-	<p>
-		This week is my Mid-Semester update for my Personal Programming Project, where I spent time making a presentation and worked on polishing some of the features
-		that were completed during previous weeks.
-	</p>
-	<header>
-		<h3>Mid-Semester Update</h3>
-	</header>
-	<p>
-		
-	</p>
 
 	<!-- <header>
 		<h3>Polishing Features</h3>
 	</header>
 	<p>
-
+		<ul>
+			<li>Multi-step plans bugs have been fixed</li>
+			<li>UI Window polished</li>
+			<li>Added animations to planner</li>
+		</ul>
 	</p> -->
+
+	<header>
+		<h3>Summary</h3>
+	</header>
+	<p>
+		Earlier in the week, I gave a presentation on the progress of the project to the class. I've given a summary below as well as the 
+		full slide deck.
+		<ul>
+			<li>Progress so far has been on schedule with some extra needed polish on some of the deliverables so far</li>
+			<ul>
+				<li>GOAP System created in C++ classes (no behavior trees)</li>
+				<li>Multi-step plans and multiple agents</li>
+				<li>Inventories</li>
+				<li>Game elements: RTS Camera, UI Watch Window, Speed</li>
+				<li>Unreal C++: Collision, Spawning, Data Structures, Delegates</li>
+			</ul>
+			<li>I talked through all of the algorithms that were used to make the demo video from Week 5, using a customer and ride operator scenario
+				as an example.</li>
+			<li>The project is being shifted to become more of a simulation than a game, which makes more sense for showing off the system, how it works,
+				 and what its advantages are. With that, there have been some changes to the schedule to remove some of the more interactive
+				tasks and to add tasks for making variables that will change how the simulation plays.</li>
+		</ul>
+	</p>
+
+
 	<section>
 		<header>
-			<h3>Introduction Presentation</h3>
+			<h3>Updated Schedule</h3>
+		</header>
+		<table style="width:100%">
+			<tr>
+			  <th style="width:20%">Week</th>
+			  <th>Deliverables</th>
+			</tr>
+			<tr>
+				<td>Week 1</td>
+					<td>
+					  <ul>
+						<li>Research and prepare presentation to give in class</li>
+						<li>Further Research</li>
+						<li>Agent simulation moving with Basic NavMeshes</li> 
+					  </ul>
+				  </td>
+			</tr>
+			  <tr>
+				<td>Week 2</td>
+					<td>
+					  <ul>
+						  <li>Creating the GOAP Environment, including the World State, Actions, and Agents</li>
+						  <li>Spawning of Agents</li>
+					  </ul>
+				  </td>
+			</tr>
+			  <tr>
+				<td>Week 3</td>
+					<td>
+					  <ul>
+						  <li>Creating the Planner and executing a simple plan on an agent</li>
+					  </ul>
+				  </td>
+			</tr>
+			  <tr>
+				<td>Week 4</td>
+					<td>
+					  <ul>
+						  <li>Expanding on the Planner by excuting multi-step plans on multiple agents</li>
+					  </ul>
+				  </td>
+			</tr>
+			<tr>
+				<td>Week 5</td>
+				<td>
+					<ul>
+						<li>Prepare update presentation to give in class</li>
+						<li>Monitoring Agents State in Real Time through a UI tool</li>
+						<li>Inventory System</li>
+						<li>Speed Buttons</li>
+						<li>Real Time Strategy Style Camera</li>
+					</ul>	
+				</td>
+			</tr>
+			<tr>
+				<td>Week 6</td>
+				<td>
+					<ul>
+						<li>Update Presentation to the class the following week</li>
+						<li>Polish features including multi-step plans, UI Window, and add animations to planner</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>Week 7</td>
+				<td>
+					<ul>
+						<li>Adding "Smart Objects" to the world that can be used to fulfill goals</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>Week 8</td>
+				<td>
+					<ul>
+						<li>Revalidation of plans invoked by adding changes to the world state at runtime</li>
+						
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>Week 9</td>
+				<td>
+					<ul>
+						<li>Agents with multiple priorities of goals</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>Week 10</td>
+				<td>
+					<ul>
+						<li>Implement all agents and actions</li>
+						<li>Integrate GOAP system into demo scene</li>
+						<li>Prepare final presentation to give in class the following week</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>Week 11</td>
+				<td>
+					<ul>
+						<li>Final Presentation!</li>
+					</ul>
+				</td>
+			</tr>
+		  </table> 
+	</section>
+	<section>
+		<header>
+			<h3>Slide Deck</h3>
 		</header>
 		<ul class="actions">
-			<li><a href="https://raw.githubusercontent.com/jordantommartin/jordantommartin.github.io/main/docs/GoalOrientedActionPlanningAI.pdf" class="button icon solid fa-file-alt" target="_blank">View the Slides</a></li>
+			<li><a href="https://raw.githubusercontent.com/jordantommartin/jordantommartin.github.io/main/docs/GOAPMidSemesterPresentation.pdf" class="button icon solid fa-file-alt" target="_blank">View the Slides</a></li>
 		</ul>
 	</section>		
 	<header>
@@ -77,10 +206,11 @@
 	<p>
 
 		<ul>
-			<li>Midpoint presentation slide deck</li>
-			<li>Creating a theme park demo for the upcoming presentation.</li>
-			<li>Mapping out all character agents and their actions in the simulation</li>
-			<li>Adding more complex behavior to the agents</li>
+			<li>Adding smart objects to the world</li>
+			<ul>
+				<li>Items in the world that can be added to an agent's inventory</li>
+				<li>Incorporating the smart objects into an agent's plan</li>
+			</ul>
 		</ul>
 	</p>	
 </article>

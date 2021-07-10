@@ -40,7 +40,7 @@
 <section id="main">
 	<div class="container">
 
-<!-- Week 6 -->
+<!-- Week 7 -->
 <article id="07-10-2021" class="box post">
 	<header>
 		<h2>Dev Diary Week 7</h2>
@@ -66,29 +66,29 @@
 		<h3>Fixing Bugs: Always use Smart Pointers</h3>
 	</header>
 	<p>
-		One of the major goals for this week was to solve more bugs inside of the GOAP system. The main issue I was having was in the function BuildGraph() which is used
-		to create all the possible plans that an agent could take at a certain time. I implemented this using a LinkedList style Node that carried all the information
-		for a specific action and a pointer the the next node. Each of these linked lists would represent a plan and each plan would be placed into an array that was returned
+		One of the major goals for this week was to solve more bugs that were impeding progress inside of the GOAP system. The main issue I was having was in the BuildGraph() function which is used
+		to create all the possible plans that an agent could take at a certain time. I implemented this using a linked list style Node that carries all the information
+		for a specific action and a pointer to the next node. Each of these linked lists would represent a plan and each plan would be placed into an array that was returned
 		to the planner to decide which plan to take.
 	</p>
 	<p>
-		The issue was that the LinkedList would sometimes have garbage data, depending on the plans that it tried to create. I was able to figure out that the function was
+		The issue was that the linked list pointers would sometimes point to garbage data, depending on the plans that it tried to create. I was able to figure out that the function was
 		working fine, but when I returned from the function all the pointers were screwed up. At first I tried to change the way I was looping through the linked list to 
 		be index-based instead of a while loop, which did alleviate some of the issues. However, when I tried to add more actions to the plan, the issue came back.
 	</p>
 	<p>
-		After thinking about the fact that the pointers were being filled with garbage data once I returned from the function, I realized that the issue was that the data that
-		the pointers were pointing to was allocated on the stack inside of a recursive function. This means this data would go out of scope and the pointer would be pointing to where
+		After thinking about the fact that the pointers were being filled with garbage data once I returned from the function, I realized that the issue was that the pointers were being
+		set to stack allocated objects inside of a recursive function. This means this data would go out of scope and the pointer would be pointing to where
 		the data used to live, but is now free. The solution was to use smart pointers to account for this situation. After refactoring my code to use smart pointers, the issue was resolved.
 	</p>
 	<header>
 		<h3>Adding Objects to the Simulation</h3>
 	</header>
 	<p>
-		After the issue with pointers was resolved, I started work on adding objects to the simulation. Originally during updates and presentations, I referred to these as "Smart Objects".
-		 This week I looked into exactly what the details and Smart Objects are much more complicated than I have time for. Essentially, the objects themselves act as Agents inside of the 
-		 simulation and there has already been lots of research into this as a topic of itself. Due to this, I made an implementation of objects myself which means that actors can
-		 add any item in the world to their inventory and this item can be depleted later to do actions in the simulation.
+		After the issue with pointers was resolved, I started working on adding objects to the simulation. Originally during updates and presentations, I referred to these as "Smart Objects".
+		 This week I looked into exactly what a Smart Object is and they are much more complicated than I have time for. Essentially, the Smart Objects themselves act as Agents inside of the 
+		 simulation. Smart Objects alone are a field of research in Automated Planning, with several research papers written about them. Due to the complexity, I made an implementation of 
+		 objects myself in which actors can add any item in the world to their inventory and this item can be depleted later to perform actions in the simulation.
 	</p>
 	<p>
 		To demonstrate this, I added a Vendor agent who can sell the Customer a ticket to get onto the ride. In order to get in line for the ride, the customer must buy a ticket from the
@@ -99,7 +99,7 @@
 		<h3>UI and Animations</h3>
 	</header>
 	<p>
-		Lastly, I made some small changes to some previous features. First, I added so that the UI Watch Window will update with each Agent's name and that each completed action will
+		Lastly, I made some small changes to previous features. First, I added onto the UI Watch Window so that it will update with each Agent's name and each completed action will
 		light up green once it is completed. In addition to the UI, I also added animations to the actions, so now an agent can complete all of the three possible actions in the GOAP system
 		 (Move To, Animate, Object).
 	</p>
@@ -107,8 +107,11 @@
 		<h3>Demo Video</h3>
 	</header>
 	<p>
+		Below you can see the object scenario play out in addition to the other updates added this week.
+	</p>
+	<p>
 		<video width="50%" controls="controls">
-			<source src="images//Week5Demo.mp4" type="video/mp4">
+			<source src="images//Week7DemoFull.mp4" type="video/mp4">
 		</video>
 	</p>
 	<header>

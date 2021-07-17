@@ -40,6 +40,79 @@
 <section id="main">
 	<div class="container">
 
+<!-- Week 8 -->
+<article id="07-17-2021" class="box post">
+	<header>
+		<h2>Dev Diary Week 7</h2>
+		<p>July 17th, 2021</p>
+	</header>
+
+	<p>
+		This week I worked on getting agents to ride the roller coasters as well as spawning in multiple customers into the demo scene.
+	</p>
+	<header>
+		<h3>Roller Coaster Animations</h3>
+	</header>
+	<p>
+		For the majority of this week, I worked on making the customers able to ride the roller coasters that will be in the park. In order to accomplish this, 
+		I had to first get all the animations for the rides working correctly. There was a known issue with the asset pack I purchased that prevented the animations
+		from working inside of Unreal Engine. Due to this, I needed to take all the animatons from the Unity version of the project and export them over to the 
+		Unreal version using the FBX Exporter tool. You can see the animations working inside of Unreal Engine below.
+	<p>
+	<p>
+		<video width="50%" controls="controls">
+			<source src="images//Week8_Scene.mp4" type="video/mp4">
+		</video>
+	</p>
+	<p>
+		After I got all the animations in, I needed to have the customer actually get on the ride. To do this, I created a socket on the ride and attached the customer
+		to that socket once the customer once doing the <b>"GetOnRide"</b> function. In order to accomplish this, I had to make modifications to the GOAP planner to 
+		allow for custom implementations of commands during an action. So now, in addition to PrePerforms and PostPerforms, I also have a DuringPerform to execute logic.
+		During this action, I then socketed the customer to the ride. It took more work than I anticipated due to some special variables that needed to be adjusted in the character
+		movement component (e.g. the gravity scale needs to be set to 0.0 while socketing the agent). After that was taken care of, I worked on adjusting the navMesh so that
+		the agent could actually walk up onto the platform and now he can actually ride the coaster!
+	</p>
+	<p>
+		<video width="50%" controls="controls">
+			<source src="images//Week8_SingleAgent.mp4" type="video/mp4">
+		</video>
+	</p>
+	<p>
+		You can see from the example that I can use the same logic on all other rides in the park if I socket the customer to the seat. Moving forward,
+		I would like to have a batch system where I can load multiple customers in line into the ride and repeat this for every run of the ride.
+	</p>
+
+	<header>
+		<h3>Multiple Customer Scenario</h3>
+	</header>
+	<p>
+		This week I also spent time making sure that multiple customers could come in and try to get on the same ride. I also made sure that my ticket system worked. 
+		In the example below, the ticket office only has 3 tickets available and the agent is not able to complete their plan once the ticket station has run out.
+	</p>
+	<p>
+		<video width="50%" controls="controls">
+			<source src="images//Week8_MultipleAgents.mp4" type="video/mp4">
+		</video>
+	</p>	
+	<header>
+		<h3>UI improvements</h3>
+	</header>
+	<p>
+		Additionally, I added the Agent's Current Goal to the UI window to make it easier to see which plan the agent is trying to accomplish.
+	</p>
+	<img style="width:20%" src="images/Week8_UI.PNG" alt="" />
+	<header>
+		<h3>What's Next</h3>
+	</header>	
+	<p>
+		<ul>
+			<li>Moving over to the Demo Scene with all the rides and park setup.<li>
+			<li>Completing all the actions for the agents in the simulation.</li>
+			<li>Second UI widget for the world state, adding inventory to the watch window, and completing the pause functionality of the demo.</li>
+		</ul>
+	</p>	
+</article>
+
 <!-- Week 7 -->
 <article id="07-10-2021" class="box post">
 	<header>

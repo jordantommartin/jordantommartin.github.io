@@ -58,11 +58,13 @@
 		If the ride is in cooldown mode, not running, and there is space on the ride, then the Customer can complete the action. I also made several sockets on the ride and attached an index to each one
 		so the Customers know where to sit. Finally, once the ride is over, I had them use the exit ramp and the next batch of customers is allowed in.
 	</p>
+	<p>
 	<video width="50%" controls="controls">
 		<source src="images//Week9Update.mp4" type="video/mp4">
 	</video>
+</p>
 	<p>
-		In addition, I also added all the textures to the characters and new animations for riding the coaster. Then I added a randomizer to the construction scripts so that it 
+		In addition, I also added all the textures to the characters and new animations for riding the coaster. Then, I added a randomizer to the construction scripts so that it 
 		chooses a texture and animation randomly from the pool of textures and animations.
 	<p>
 		<video width="50%" controls="controls">
@@ -73,7 +75,7 @@
 		<h3>Go To Bathroom/Take a Break Actions</h3>
 	</header>
 	<p>
-		This week I also worked on adding actions that have a random chance to fire during the simulation. These two actions are the <b>GoToBathroom</b> and <b>Rest</b> actions.
+		This week, I also worked on adding actions that have a random chance to fire during the simulation. These two actions are the <b>GoToBathroom</b> and <b>Rest</b> actions.
 		Using a randomly set timer, a state is injected into the character's belief system that they are either "exhausted or "needRelief". These two states are the preconditions
 		to the actions and has a high enough priority to stop the current action the agent is taking. These are still a work in progress as there is an issue with overlapping timers in Unreal
 		that I have not figred out yet.

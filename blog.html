@@ -40,6 +40,68 @@
 <section id="main">
 	<div class="container">
 
+<!-- Week 9 -->
+<article id="07-24-2021" class="box post">
+	<header>
+		<h2>Dev Diary Week 9</h2>
+		<p>July 24th, 2021</p>
+	</header>
+	<header>
+		<h3>Ride Queue</h3>
+	</header>
+	<p>
+		Last week, I worked on attaching a customer to a ride using sockets and new animations. This week, I expanded on this by having multiple customers be able to queue as a batch.
+		To accomplish this, I had to expand the ride class to have more information.
+	</p>
+	<p>
+		On the ride class, I added a duration time, cooldown time, and max capacity. Then I adjusted the Customer class to watch these variables when attempting to get onto the ride.
+		If the ride is in cooldown mode, not running, and there is space on the ride, then the Customer can complete the action. I also made several sockets on the ride and attached an index to each one
+		so the Customers know where to sit. Finally, once the ride is over, I had them use the exit ramp and the next batch of customers is allowed in.
+	</p>
+	<video width="50%" controls="controls">
+		<source src="images//Week9Update.mp4" type="video/mp4">
+	</video>
+	<p>
+		In addition, I also added all the textures to the characters and new animations for riding the coaster. Then I added a randomizer to the construction scripts so that it 
+		chooses a texture and animation randomly from the pool of textures and animations.
+	<p>
+		<video width="50%" controls="controls">
+			<source src="images//Week9_Textures.mp4" type="video/mp4">
+		</video>
+	</p>
+	<header>
+		<h3>Go To Bathroom/Take a Break Actions</h3>
+	</header>
+	<p>
+		This week I also worked on adding actions that have a random chance to fire during the simulation. These two actions are the <b>GoToBathroom</b> and <b>Rest</b> actions.
+		Using a randomly set timer, a state is injected into the character's belief system that they are either "exhausted or "needRelief". These two states are the preconditions
+		to the actions and has a high enough priority to stop the current action the agent is taking. These are still a work in progress as there is an issue with overlapping timers in Unreal
+		that I have not figred out yet.
+	</p>	
+	<p>
+		<video width="50%" controls="controls">
+			<source src="images//Week9Relief.mp4" type="video/mp4">
+		</video>
+	</p>
+	<header>
+		<h3>Moving to Demo Scene</h3>
+	</header>
+	<p>
+		Lastly, I started migrating all the work done in the test scene into the demo scene that was provided with the asset pack. Currently, I have a nav mesh placed and agents are able to spawned
+		and move around in the scene. However, the agents are not able to complete their plans.
+	</p>
+	<header>
+		<h3>What's Next</h3>
+	</header>	
+	<p>
+		<ul>
+			<li>Moving over to the Demo Scene with all the rides and park setup.</li>
+			<li>Completing all the actions for the agents in the simulation.</li>
+			<li>Second UI widget for the world state, adding inventory to the watch window, and completing the pause functionality of the demo.</li>
+		</ul>
+	</p>	
+</article>
+
 <!-- Week 8 -->
 <article id="07-17-2021" class="box post">
 	<header>

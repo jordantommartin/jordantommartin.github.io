@@ -39,6 +39,52 @@
 
 <section id="main">
 	<div class="container">
+<!-- Week 9 -->
+<article id="07-31-2021" class="box post">
+	<header>
+		<h2>Dev Diary Week 10</h2>
+		<p>July 31st, 2021</p>
+	</header>
+	<header>
+		<h3>Summary</h3>
+	</header>
+	<p>
+		This week, I worked on bug fixing, attempting to have multiple rides in the same test scene, attempting to move to the demo scene, and creating the final presentation.
+	</p>
+	<header>
+		<h3>Bug Fixing</h3>
+	</header>
+	<p>
+		One of the bugs that was causing issues is that I could not get customers to properly stand in line, as they were all "fighting" to get to the same point and clogging up
+		entire line so no one could reach their destination. At first I tried to change the actions so that it could account for people standing in line, but that caused issues in the
+		planning. I ended up changing the collision on the characters to be a box shape and doing a custom collision channel for customers. This way, the box shape would restrict customers
+		from being able to pass each other in line, which was a big problem with the cylinder shape.
+	</p>
+	<p>Video goes here.</p>
+	<header>
+		<h3>Moving to Demo Scene</h3>
+	</header>
+	<p>
+		I also moved my entire simulation to the Demo Scene and got everything working. It was nice to know that the system was stable enough to be moved to an entirely different scene and 
+		still work. However, I did not have my system working with all the rides and shops, as that would take some time. So, I ended up moving back to my test scene.
+	</p>
+	<header>
+		<h3>Multiple Rides</h3>
+	</header>
+	<p>
+		This is still a work in progress, but I am attempting to add additional rides to the test scene that I have animations for using the same socketing technique. However, this is 
+		causing issues as I did not account for multiple different rides when I created the system. Currently, I am working on appending the name of the ride to all the required fields 
+		for the planner to use, that way it can differentiate which ride the customer is looking for.
+	</p>	
+	<header>
+		<h3>What's Next</h3>
+	</header>	
+	<p>
+		<ul>
+			<li>Bug Fixing and Final Presentation</li>
+		</ul>
+	</p>	
+</article>
 
 <!-- Week 9 -->
 <article id="07-24-2021" class="box post">

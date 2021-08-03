@@ -39,49 +39,99 @@
 
 <section id="main">
 	<div class="container">
-<!-- Week 9 -->
+<!-- Week 11 -->
+<article id="08-03-2021" class="box post">
+	<header>
+		<h2>Final Update - Dev Diary Week 11</h2>
+		<p>August 3rd, 2021</p>
+	</header>
+	<header>
+		<h3>Final Presentation</h3>
+	</header>
+	<p>
+		This weeks marks the end of my project on GOAP AI! I created a presentation and presented it to the class. Below is a summary of the presentation as well as the full slide deck.
+		<ul>
+			<li>Since the mid-semester presentation, I've implemented the following into the simulation:</li>
+			<ul>
+				<li>Expanded on GOAP system: DuringPerform() and Animations</li>
+				<li>Smart Objects added to Inventories</li>
+				<li>Ride animations/socketing and Queueing system for agents</li>
+				<li>Additional actions: Use Restroom, Take Break, Leave Park, etc</li>
+				<li>UI Watch Window Additions</li>
+				<li>Mutiple Rides with a random chance for customers to choose between</li>
+				<li>Unreal C++: Collision, Animations/State Machine, Socketing</li>
+			</ul>
+			<li>I then talked through the demo video and explained how the GOAP system operates through the scenario.</li>
+			<li>Lastly, I talked about the positive outcomes of the project, difficulties explained, and next steps that I would take if I would continue the project.</li>
+		</ul>
+	</p>
+	<header>
+		<h3>Slide Deck</h3>
+	</header>
+	<ul class="actions">
+		<li><a href="https://raw.githubusercontent.com/jordantommartin/jordantommartin.github.io/main/docs/GOAPFinalPresentation.pdf" class="button icon solid fa-file-alt" target="_blank">View the Slides</a></li>
+	</ul>
+	<header>
+		<h3>Demo</h3>
+	</header>
+	<video width="50%" controls="controls">
+		<source src="images//FinalGOAPDemo.mp4" type="video/mp4">
+	</video>
+	<header>
+		<h3>Final Remarks</h3>
+	</header>
+	<p>
+		Overall, this experience has been very rewarding experience for my career as a game developer. Although it was difficult at times, I learned lots about how to plan a project from start to finish,
+		adapting to challenges along the way, and creating a product in the end that I can demonstrate to others. I feel much more comfortable writing C++ code in Unreal engine and am excited
+		to continue working with different kinds of AI during my career. I appreciate the feedback from the professors at FIEA and the thoughts from my classmates who took the time to review the project.
+		Thanks to everyone who has taken the time to read about this experience! 
+	</p>
+</article>
+
+<!-- Week 10 -->
 <article id="07-31-2021" class="box post">
 	<header>
 		<h2>Dev Diary Week 10</h2>
 		<p>July 31st, 2021</p>
 	</header>
 	<header>
-		<h3>Summary</h3>
+		<h3>Customers Queueing in Line</h3>
 	</header>
 	<p>
-		This week, I worked on bug fixing, attempting to have multiple rides in the same test scene, attempting to move to the demo scene, and creating the final presentation.
+		One of the issues I was experiencing is that I could not get customers to properly stand in line, as they were all "fighting" to get to the same point and clogging up
+		entire line so no one could reach their destination. This was because they all were using capsule colliders, which was causing them roll off of each other. 
 	</p>
-	<header>
-		<h3>Bug Fixing</h3>
-	</header>
 	<p>
-		One of the bugs that was causing issues is that I could not get customers to properly stand in line, as they were all "fighting" to get to the same point and clogging up
-		entire line so no one could reach their destination. At first I tried to change the actions so that it could account for people standing in line, but that caused issues in the
-		planning. I ended up changing the collision on the characters to be a box shape and doing a custom collision channel for customers. This way, the box shape would restrict customers
+		At first I tried to change the actions so that it could account for people standing in line, but that caused issues with the plan.
+		 I ended up changing the collision on the characters to be a box shape and doing a custom collision channel for customers. This way, the box shape would restrict customers
 		from being able to pass each other in line, which was a big problem with the cylinder shape.
 	</p>
-	<p>Video goes here.</p>
-	<header>
-		<h3>Moving to Demo Scene</h3>
-	</header>
-	<p>
-		I also moved my entire simulation to the Demo Scene and got everything working. It was nice to know that the system was stable enough to be moved to an entirely different scene and 
-		still work. However, I did not have my system working with all the rides and shops, as that would take some time. So, I ended up moving back to my test scene.
-	</p>
+	<img style="width:60%" src="images/Week10_Collision.png" alt="" />
 	<header>
 		<h3>Multiple Rides</h3>
 	</header>
 	<p>
-		This is still a work in progress, but I am attempting to add additional rides to the test scene that I have animations for using the same socketing technique. However, this is 
-		causing issues as I did not account for multiple different rides when I created the system. Currently, I am working on appending the name of the ride to all the required fields 
-		for the planner to use, that way it can differentiate which ride the customer is looking for.
-	</p>	
+		Additionally, I added a second ride to the demo scene this week. I made changes to the agents and the customers to add the name of the ride to the actions they are trying to complete.
+		Then, I added the tower ride and added sockets to each of the seats. After tweaking some small bugs, I spawned the customers with a random chance of choosing either the wave ride or
+		the tower ride.
+	</p>
+	<video width="50%" controls="controls">
+		<source src="images//FinalDemo.mp4" type="video/mp4">
+	</video>
+	<header>
+		<h3>World States UI</h3>
+	</header>	
+	<p>
+		Lastly, I added an additional UI widget that displays the contents of the World States singleton. It displays any facts within the world and the quantity of each of those states.
+		This is updated after each action so that it accurately displays the state of the simulation.
+	</p>
+	<img style="width: 20%" src="images/Week10_UI.png" alt="" />
 	<header>
 		<h3>What's Next</h3>
 	</header>	
 	<p>
 		<ul>
-			<li>Bug Fixing and Final Presentation</li>
+			<li>Final Presentation and Wrap Up!</li>
 		</ul>
 	</p>	
 </article>

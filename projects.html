@@ -29,70 +29,133 @@
       <div class="page-header">
         <div class="label">Work</div>
         <h1>Projects</h1>
-        <p>Games and interactive projects I've shipped, jammed, or prototyped.</p>
+        <p>Games and interactive experiences I've shipped professionally.</p>
       </div>
 
       <section class="section">
-        <div class="section-title">Games</div>
         <div class="project-grid">
 
-          <a href="#" class="project-card">
+          <div class="project-card">
             <div class="project-card-header">
-              <h3>Project Title</h3>
-              <span class="project-tag">2024</span>
+              <h3>Unannounced Third-Person Shooter</h3>
+              <span class="project-tag">Current — PS5, PC</span>
             </div>
-            <p>Describe the game — genre, concept, what makes it interesting. Keep it brief and punchy. Link to itch.io or a trailer.</p>
+            <ul class="project-bullets">
+              <li>Designed flanking behaviors for enemy AI using Behavior Trees, EQS, and C++ classes.</li>
+              <li>Engineered a system for allowing friendly AI to perform stealth takedowns on enemy AI.</li>
+            </ul>
             <div class="project-tags">
-              <span class="tag">Unity</span>
-              <span class="tag">C#</span>
-              <span class="tag">2D Platformer</span>
-            </div>
-          </a>
-
-          <a href="#" class="project-card">
-            <div class="project-card-header">
-              <h3>Game Jam Entry</h3>
-              <span class="project-tag">2024</span>
-            </div>
-            <p>Made for [Jam Name] in 48 hours. Theme was [theme]. Solo / with a team of N people.</p>
-            <div class="project-tags">
-              <span class="tag">Godot</span>
-              <span class="tag">GDScript</span>
-              <span class="tag">Puzzle</span>
-            </div>
-          </a>
-
-          <a href="#" class="project-card">
-            <div class="project-card-header">
-              <h3>Another Project</h3>
-              <span class="project-tag">2023</span>
-            </div>
-            <p>Description of what this project is and what role you played in creating it.</p>
-            <div class="project-tags">
-              <span class="tag">Unreal</span>
+              <span class="tag">Unreal Engine</span>
               <span class="tag">C++</span>
-              <span class="tag">3D</span>
+              <span class="tag">AI Systems</span>
             </div>
-          </a>
+          </div>
 
-        </div>
-      </section>
+          <div class="project-card project-card--with-img">
+            <div class="project-card-text">
+              <h3>Tony Hawk's Pro Skater 3+4</h3>
+              <ul class="project-bullets">
+                <li>Added Switch 2 support for backend platform services (Demonware) and Playfab Voice Chat.</li>
+                <li>Resolved platform-specific integrations, including GameChat, NSO, and Profile UI.</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tag">Unreal Engine</span>
+                <span class="tag">C++</span>
+                <span class="tag">Demonware</span>
+                <span class="tag">Playfab</span>
+                <span class="tag">Switch 2</span>
+              </div>
+            </div>
+            <div class="project-card-aside">
+              <span class="project-tag">2025 — Switch 2</span>
+              <img src="assets/images/thps.png" alt="Tony Hawk's Pro Skater 3+4" class="project-card-img">
+            </div>
+          </div>
 
-      <section class="section">
-        <div class="section-title">Prototypes &amp; Experiments</div>
-        <div class="project-grid">
-
-          <a href="#" class="project-card">
+          <div class="project-card">
             <div class="project-card-header">
-              <h3>Prototype Name</h3>
-              <span class="project-tag">2023</span>
+              <h3>Interactive Shooter Attraction</h3>
+              <span class="project-tag">2025 — Universal Studios</span>
             </div>
-            <p>A quick mechanic exploration or technical prototype. What were you testing?</p>
+            <ul class="project-bullets">
+              <li>Configured boss power-ups and seasonal skins by wiring textures, VFX, and ammo types to a data table-driven system for runtime variant selection.</li>
+              <li>Architected Player State Service (PSS) to transfer player state across distributed game instances and add redundancy for crashes.</li>
+              <li>Synchronized in-attraction session data with the mobile app to tie player actions to rewards.</li>
+            </ul>
             <div class="project-tags">
-              <span class="tag">Unity</span>
-              <span class="tag">Procedural Gen</span>
+              <span class="tag">Unreal Engine</span>
+              <span class="tag">C++</span>
             </div>
-          </a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card-header">
+              <h3>Auto-Battler Prototype</h3>
+              <span class="project-tag">2023 — Mobile, PC</span>
+            </div>
+            <ul class="project-bullets">
+              <li>Developed player navigation and loot distribution systems, accounting for client-server replication.</li>
+            </ul>
+            <div class="project-tags">
+              <span class="tag">Unreal Engine</span>
+              <span class="tag">C++</span>
+            </div>
+          </div>
+
+          <div class="project-card project-card--with-img">
+            <div class="project-card-text">
+              <h3>VALORANT</h3>
+              <ul class="project-bullets">
+                <li>Resolved timing and edge-case bugs between ability activation and UI state for new platforms.</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tag">Unreal Engine</span>
+                <span class="tag">C++</span>
+              </div>
+            </div>
+            <div class="project-card-aside">
+              <span class="project-tag">2022</span>
+              <img src="assets/images/valorant.jpeg" alt="VALORANT" class="project-card-img">
+            </div>
+          </div>
+
+          <div class="project-card project-card--with-img">
+            <div class="project-card-text">
+              <h3>Rumbleverse</h3>
+              <ul class="project-bullets">
+                <li>Fixed and improved UI systems, including battle pass, character customization, and player cards.</li>
+                <li>Extended an in-house UI framework with an async asset loading API, exposing success/failure callbacks and a simplified image-loading interface for designer use.</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tag">Unreal Engine</span>
+                <span class="tag">C++</span>
+                <span class="tag">UI Systems</span>
+              </div>
+            </div>
+            <div class="project-card-aside">
+              <span class="project-tag">2022 — Xbox, PS4/5, PC</span>
+              <img src="assets/images/rumbleverse.jpg" alt="Rumbleverse" class="project-card-img">
+            </div>
+          </div>
+
+          <div class="project-card project-card--with-img">
+            <div class="project-card-text">
+              <h3>Zenko: A Fox's Tale</h3>
+              <ul class="project-bullets">
+                <li>Built core movement mechanics (dash, pounce) and implemented destructible platforming objects that could be rebuilt at runtime.</li>
+                <li>Used GameAnalytics to analyze playtest data and inform gameplay iteration and balancing.</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tag">Unreal Engine</span>
+                <span class="tag">C++</span>
+                <span class="tag">GameAnalytics</span>
+              </div>
+            </div>
+            <div class="project-card-aside">
+              <span class="project-tag">2021 — Capstone</span>
+              <img src="assets/images/zenko.jpg" alt="Zenko: A Fox's Tale" class="project-card-img">
+            </div>
+          </div>
 
         </div>
       </section>

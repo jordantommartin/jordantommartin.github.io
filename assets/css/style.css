@@ -172,8 +172,8 @@ footer .container {
   border-radius: 0;
   object-fit: cover;
   object-position: top;
-  border: 2px solid var(--accent);
-  box-shadow: 6px 6px 0 var(--accent);
+  border: 2px solid #c8f542;
+  box-shadow: 6px 6px 0 #c8f542;
 }
 
 /* Candid photo on about page */
@@ -191,13 +191,13 @@ footer .container {
 }
 
 .candid-photo {
-  width: 320px;
-  height: 180px;
+  width: 300px;
+  height: 200px;
   object-fit: cover;
   object-position: center;
   border-radius: 0;
-  border: 2px solid var(--accent);
-  box-shadow: 6px 6px 0 var(--accent);
+  border: 2px solid #c8f542;
+  box-shadow: 6px 6px 0 #c8f542;
   flex-shrink: 0;
 }
 
@@ -220,7 +220,7 @@ footer .container {
   .candid-photo {
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 3 / 2;
   }
 }
 
@@ -392,6 +392,45 @@ p:last-child {
   text-decoration: none;
 }
 
+.project-card--with-img {
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+}
+
+.project-card--with-img .project-card-text {
+  flex: 1;
+  padding: 1.75rem;
+}
+
+.project-card--with-img .project-card-text h3 {
+  margin-bottom: 0.5rem;
+}
+
+.project-card-aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 1.75rem 1.75rem 1.75rem 0;
+  flex-shrink: 0;
+}
+
+.project-card-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 2px solid #c8f542;
+  box-shadow: 4px 4px 0 #c8f542;
+  filter: grayscale(15%);
+  transition: filter 0.25s ease;
+}
+
+.project-card:hover .project-card-img {
+  filter: grayscale(0%);
+}
+
 .project-card-header {
   display: flex;
   align-items: flex-start;
@@ -417,6 +456,29 @@ p:last-child {
 .project-card p {
   font-size: 0.9rem;
   margin-bottom: 1rem;
+}
+
+.project-bullets {
+  list-style: none;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.project-bullets li {
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.project-bullets li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
 }
 
 .project-tags {

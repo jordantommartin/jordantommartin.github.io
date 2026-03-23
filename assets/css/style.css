@@ -11,7 +11,7 @@
   --border: #2a2a2a;
   --text: #e8e8e8;
   --muted: #888;
-  --accent: #c8f542;
+  --accent: #50c878;
   --font: 'Inter', system-ui, -apple-system, sans-serif;
   --mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
@@ -172,8 +172,8 @@ footer .container {
   border-radius: 0;
   object-fit: cover;
   object-position: top;
-  border: 2px solid #c8f542;
-  box-shadow: 6px 6px 0 #c8f542;
+  border: 2px solid #50c878;
+  box-shadow: 6px 6px 0 #50c878;
 }
 
 /* Candid photo on about page */
@@ -196,8 +196,8 @@ footer .container {
   object-fit: cover;
   object-position: center;
   border-radius: 0;
-  border: 2px solid #c8f542;
-  box-shadow: 6px 6px 0 #c8f542;
+  border: 2px solid #50c878;
+  box-shadow: 6px 6px 0 #50c878;
   flex-shrink: 0;
 }
 
@@ -421,8 +421,8 @@ p:last-child {
   width: 120px;
   height: 120px;
   object-fit: cover;
-  border: 2px solid #c8f542;
-  box-shadow: 4px 4px 0 #c8f542;
+  border: 2px solid #50c878;
+  box-shadow: 4px 4px 0 #50c878;
   filter: grayscale(15%);
   transition: filter 0.25s ease;
 }
